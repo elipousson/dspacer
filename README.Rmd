@@ -1,0 +1,54 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# dspacer
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+<!-- badges: end -->
+
+The goal of dspacer is to support access to the [DSpace REST API](https://github.com/DSpace/DSpace/releases/tag/dspace-8.0).
+
+## Installation
+
+You can install the development version of dspacer like so:
+
+``` r
+pak::pkg_install("elipousson/dspacer")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(dspacer)
+```
+
+```{r}
+ds_collections(
+  "https://jscholarship.library.jhu.edu/server/api"
+)
+
+# ds_items(
+#   "https://jscholarship.library.jhu.edu/server/api"
+# )
+
+ds_communities(
+  "https://jscholarship.library.jhu.edu/server/api"
+)
+```
