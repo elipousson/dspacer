@@ -4,7 +4,7 @@
 \alias{dspace_request}
 \title{Wrapper function for \code{httr2::request}}
 \usage{
-dspace_request(base_url = getOption("dpacer.base_url"), ...)
+dspace_request(base_url = NULL, query = NULL, path = NULL, ...)
 }
 \description{
 Wrapper function for \code{httr2::request}
