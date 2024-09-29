@@ -33,22 +33,23 @@ pak::pkg_install("elipousson/dspacer")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
-```{r example}
+```{r}
 library(dspacer)
 ```
+
+These are basic examples of three public end points that do not require authentication:
 
 ```{r}
 ds_collections(
   "https://jscholarship.library.jhu.edu/server/api"
 )
 
-# ds_items(
-#   "https://jscholarship.library.jhu.edu/server/api"
-# )
+ds_search(
+  "https://jscholarship.library.jhu.edu/server/api"
+)
 
 ds_communities(
   "https://jscholarship.library.jhu.edu/server/api"
 )
 ```
+The [DSpace 7 REST Contract repository](https://github.com/DSpace/RestContract) documents new DSpace REST API Contract beginning with version 7.0.

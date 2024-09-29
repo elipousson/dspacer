@@ -27,11 +27,12 @@ pak::pkg_install("elipousson/dspacer")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ``` r
 library(dspacer)
 ```
+
+These are basic examples of three public end points that do not require
+authentication:
 
 ``` r
 ds_collections(
@@ -500,13 +501,84 @@ ds_collections(
 #> 
 #> $page$number
 #> [1] 0
-```
 
-``` r
-
-# ds_items(
-#   "https://jscholarship.library.jhu.edu/server/api"
-# )
+ds_search(
+  "https://jscholarship.library.jhu.edu/server/api"
+)
+#> $id
+#> NULL
+#> 
+#> $filters
+#>                            filter hasFacets         type
+#> 1                           title     FALSE         text
+#> 2                          author      TRUE         text
+#> 3                         subject      TRUE hierarchical
+#> 4                      dateIssued      TRUE         date
+#> 5  has_content_in_original_bundle      TRUE     standard
+#> 6       original_bundle_filenames     FALSE         text
+#> 7    original_bundle_descriptions     FALSE         text
+#> 8                      entityType      TRUE         text
+#> 9           isAuthorOfPublication     FALSE         text
+#> 10         isProjectOfPublication     FALSE         text
+#> 11         isOrgUnitOfPublication     FALSE         text
+#> 12    isPublicationOfJournalIssue     FALSE         text
+#> 13         isJournalOfPublication     FALSE         text
+#>                                                                   operators
+#> 1  equals, notequals, authority, notauthority, contains, notcontains, query
+#> 2  equals, notequals, authority, notauthority, contains, notcontains, query
+#> 3  equals, notequals, authority, notauthority, contains, notcontains, query
+#> 4  equals, notequals, authority, notauthority, contains, notcontains, query
+#> 5  equals, notequals, authority, notauthority, contains, notcontains, query
+#> 6  equals, notequals, authority, notauthority, contains, notcontains, query
+#> 7  equals, notequals, authority, notauthority, contains, notcontains, query
+#> 8  equals, notequals, authority, notauthority, contains, notcontains, query
+#> 9  equals, notequals, authority, notauthority, contains, notcontains, query
+#> 10 equals, notequals, authority, notauthority, contains, notcontains, query
+#> 11 equals, notequals, authority, notauthority, contains, notcontains, query
+#> 12 equals, notequals, authority, notauthority, contains, notcontains, query
+#> 13 equals, notequals, authority, notauthority, contains, notcontains, query
+#>    pageSize openByDefault
+#> 1        10          TRUE
+#> 2        10          TRUE
+#> 3         0         FALSE
+#> 4        10         FALSE
+#> 5        10         FALSE
+#> 6         0         FALSE
+#> 7         0         FALSE
+#> 8         0         FALSE
+#> 9        10         FALSE
+#> 10       10         FALSE
+#> 11       10         FALSE
+#> 12       10         FALSE
+#> 13       10         FALSE
+#> 
+#> $sortOptions
+#>                  name sortOrder
+#> 1               score      desc
+#> 2            dc.title       asc
+#> 3      dc.date.issued      desc
+#> 4 dc.date.accessioned      desc
+#> 
+#> $defaultSortOption
+#> NULL
+#> 
+#> $type
+#> [1] "discover"
+#> 
+#> $`_links`
+#> $`_links`$facets
+#> $`_links`$facets$href
+#> [1] "https://jscholarship.library.jhu.edu/server/api/discover/search/facets"
+#> 
+#> 
+#> $`_links`$objects
+#> $`_links`$objects$href
+#> [1] "https://jscholarship.library.jhu.edu/server/api/discover/search/objects"
+#> 
+#> 
+#> $`_links`$self
+#> $`_links`$self$href
+#> [1] "https://jscholarship.library.jhu.edu/server/api/discover/search"
 
 ds_communities(
   "https://jscholarship.library.jhu.edu/server/api"
@@ -849,3 +921,7 @@ ds_communities(
 #> $page$number
 #> [1] 0
 ```
+
+The [DSpace 7 REST Contract
+repository](https://github.com/DSpace/RestContract) documents new DSpace
+REST API Contract beginning with version 7.0.
